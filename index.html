@@ -11,7 +11,7 @@
 
     <div class="header">
         <div><span style="font-weight:bold;">Hello, Guy</span></div>
-        <div><button onclick="openmodel()">Open Model</button></div>
+        <div><button onclick="openmodel()">פנייה חדשה</button></div>
         <div class="logoutbtn">Logout</div>
     </div>
 
@@ -22,9 +22,9 @@
             <h1>טופס פניה למערכת רישוי כל</h1>
 
 
-            <input type="text" name="name" placeholder="* שם מלא"><br/><br/>
-            <input type="number" name="id" placeholder="* מספר תעודת זהות"><br/><br/>
-            <textarea name="desc" placeholder="* תיאור, מה אתה צריך"></textarea>
+            <input type="text" name="name" id="name" placeholder="* שם מלא"><br/><br/>
+            <input type="number" name="id" id="id"  placeholder="* מספר תעודת זהות"><br/><br/>
+            <textarea name="desc" id="desc" placeholder="* תיאור, מה אתה צריך"></textarea>
 
             <br/><br/>
 
@@ -64,6 +64,18 @@ function closemodal(){
         modal.style.transform = "scale(-1.5)";
         modal.style.opacity = "0";
     }, 10);
+}
+
+function submit() {
+    const nameinp = document.getElementById("name").value;
+    const descinp = document.getElementById("desc").value;
+    const idinp = document.getElementById("id").value;
+
+    if(nameinp === "" || descinp === "" || idinp === ""){
+        alert("נא למלא את כל הפרטים בטופס.");
+    } else {
+        alert("נשלח הטופס בהצלחה: " + nameinp + " (" + idinp + ") - " + descinp);
+    }
 }
 </script>
 
