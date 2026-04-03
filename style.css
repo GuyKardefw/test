@@ -28,7 +28,7 @@ body {
     transform:scale(1.3);
 }
 button {
-    background-color:red;
+    background-color:yellowgreen;
     outline:none;
     border:none;
     cursor:pointer;
