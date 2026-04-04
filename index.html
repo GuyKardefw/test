@@ -69,15 +69,24 @@ function closemodal(){
     }, 10);
 }
 
-function submit() {
-    const nameinp = document.getElementById("name").value;
-    const descinp = document.getElementById("desc").value;
-    const idinp = document.getElementById("id").value;
 
-    if(nameinp === "" || descinp === "" || idinp === ""){
+
+function submit() {
+    let nameinp = document.getElementById("name");
+    let descinp = document.getElementById("desc");
+    let idinp = document.getElementById("id");
+
+    if(nameinp.value === "" || descinp.value === "" || idinp.value === ""){
         alert("נא למלא את כל הפרטים בטופס.");
     } else {
-        alert("נשלח הטופס בהצלחה: " + nameinp + " (" + idinp + ") - " + descinp);
+        alert("נשלח הטופס בהצלחה: " + nameinp.value + " (" + idinp.value + ") - " + descinp.value);
+
+
+        nameinp.value = "";
+        descinp.value = "";
+        idinp.value = "";
+
+        closemodal();
     }
 }
 </script>
