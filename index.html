@@ -135,12 +135,14 @@ function submit() {
 function submit2(){
     let nametitle = document.getElementById("nametitle");
     let nameinp2 = document.getElementById("name");
+    let name3 = document.getElementById("name3");
     let nametitleinput = document.getElementById("nametitleinput");
 
     if(nametitleinput.value === ""){
         alert("נא למלא את השם המלא.");
     } else {
         nameinp2.value = nametitleinput.value;
+        name3.value = nametitleinput.value;
         nametitle.innerText = "שלום, " + nametitleinput.value;
         nametitleinput.value = ""
         closemodal2();
@@ -150,7 +152,7 @@ function submit2(){
 
 
 
-<center><div style="position:fixed;bottom:20px;width:100%;">
+<center><div style="position:fixed;bottom:5px;width:98%;" class="footer">
 <input type="text" id="name3" placeholder="שם">
 <input type="text" id="desc3" placeholder="תיאור">
 <input type="text" id="id3" placeholder="ID"><br/>

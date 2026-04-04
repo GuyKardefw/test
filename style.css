@@ -94,3 +94,12 @@ input[type="text"],[type="number"] {
 #nametitle:hover {
     text-decoration: underline;
 }
+.footer {
+    background-color:rgb(242, 218, 185);
+    boredr-radius:10px;
+    padding:10px;
+    display:flex;
+    justify-content:stretch;
+    align-items: center;
+    border-radius:10px;
+}
