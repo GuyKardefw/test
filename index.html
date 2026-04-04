@@ -166,8 +166,8 @@ function save() {
     const id3 = document.getElementById("id3").value;
 
     const data = [
-        ["Name", "Description", "ID"],
-        [name3, desc3, id3]
+        ["שם מלא", "תעודת זהות", "תוכן הפנייה"],
+        [name3, id3, desc3]
     ];
 
     let csv = data.map(row => row.join(",")).join("\n");
