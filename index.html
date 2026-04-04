@@ -10,7 +10,7 @@
 <body>
 
     <div class="header">
-        <div><span style="font-weight:bold;">שלום</span></div>
+        <div><span style="font-weight:bold;cursor: pointer;" onclick="openmodel2()" id="nametitle">שלום</span></div>
         <div><button onclick="openmodel()">פנייה חדשה</button></div>
         <div><center><img src="https://upload.wikimedia.org/wikipedia/he/thumb/a/a3/Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg/1280px-Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg.png" style="width:70px;height:50px;"></center>
         </div>
@@ -19,22 +19,37 @@
 
 
     <div class="overlay" id="overlay"> 
-
         <div class="modal" id="modal">
             <center><img src="https://upload.wikimedia.org/wikipedia/he/thumb/a/a3/Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg/1280px-Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg.png" style="width:100px;height:70px;"></center>
             <h1>טופס פניה למערכת רישוי כל</h1>
 
-
+            <center>
             <input type="text" name="name" id="name" placeholder="* שם מלא"><br/><br/>
             <input type="number" name="id" id="id"  placeholder="* מספר תעודת זהות"><br/><br/>
             <textarea name="desc" id="desc" placeholder="* תיאור, מה אתה צריך"></textarea>
-
+            </center>
             <br/><br/>
 
             <button onclick="submit()">שליחה</button>
-            <button onclick="closemodal()" style="background-color:rosybrown;">סגירה</button>
+            <button onclick="closemodal()" style="background-color:rosybrown;border:1px solid rosybrown;">סגירה</button>
         </div>
-        
+    </div>
+
+
+
+        <div class="overlay" id="overlay2"> 
+        <div class="modal" id="modal2">
+            <center><img src="https://upload.wikimedia.org/wikipedia/he/thumb/a/a3/Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg/1280px-Israeli_Ministry_of_Transport_and_Road_Safety_Symbol.svg.png" style="width:100px;height:70px;"></center>
+            <h1>הכנס שם</h1>
+
+            <center>
+            <input type="text" name="name" id="nametitleinput" placeholder="* שם מלא"><br/><br/>
+            </center>
+            <br/><br/>
+
+            <button onclick="submit2()">שמירה</button>
+            <button onclick="closemodal2()" style="background-color:rosybrown;border:1px solid rosybrown;">סגירה</button>
+        </div>
     </div>
 
 
@@ -54,6 +69,21 @@ function openmodel(){
 }
 
 
+function openmodel2(){
+    const overlay2 = document.getElementById("overlay2");
+    const modal2 = document.getElementById("modal2");
+
+    overlay2.style.display = "flex";
+    modal2.style.display = "block";
+
+    setTimeout(() => {
+        overlay2.style.opacity = "1";
+        modal2.style.transform = "scale(1.3)";
+        modal2.style.opacity = "1";
+    }, 10);
+}
+
+
 function closemodal(){
     const overlay = document.querySelector(".overlay");
     const modal = document.querySelector(".modal");
@@ -69,7 +99,20 @@ function closemodal(){
     }, 10);
 }
 
+function closemodal2(){
+    const overlay2 = document.getElementById("overlay2");
+    const modal2 = document.getElementById("modal2");
 
+    overlay2.style.display = "none";
+    modal2.style.display = "none";
+
+
+    setTimeout(() => {
+        overlay2.style.opacity = "0";
+        modal2.style.transform = "scale(-1.5)";
+        modal2.style.opacity = "0";
+    }, 10);
+}
 
 function submit() {
     let nameinp = document.getElementById("name");
@@ -81,12 +124,27 @@ function submit() {
     } else {
         alert("נשלח הטופס בהצלחה: " + nameinp.value + " (" + idinp.value + ") - " + descinp.value);
 
-
         nameinp.value = "";
         descinp.value = "";
         idinp.value = "";
 
         closemodal();
+    }
+}
+
+
+function submit2(){
+    let nametitle = document.getElementById("nametitle");
+    let nameinp2 = document.getElementById("name");
+    let nametitleinput = document.getElementById("nametitleinput");
+
+    if(nametitleinput.value === ""){
+        alert("נא למלא את השם המלא.");
+    } else {
+        nameinp2.value = nametitleinput.value;
+        nametitle.innerText = "שלום, " + nametitleinput.value;
+        nametitleinput.value = ""
+        closemodal2();
     }
 }
 </script>

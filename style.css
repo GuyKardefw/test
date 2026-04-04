@@ -91,3 +91,6 @@ input[type="text"],[type="number"] {
     text-align: right;
     padding:5px;
 }
+#nametitle:hover {
+    text-decoration: underline;
+}
