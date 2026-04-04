@@ -148,5 +148,37 @@ function submit2(){
 }
 </script>
 
+
+
+<center><div style="position:fixed;bottom:20px;width:100%;">
+<input type="text" id="name3" placeholder="שם">
+<input type="text" id="desc3" placeholder="תיאור">
+<input type="text" id="id3" placeholder="ID"><br/>
+<button onclick="save()">שמור</button>
+</div></center>
+
+<script>
+function save() {
+    const name3 = document.getElementById("name3").value;
+    const desc3 = document.getElementById("desc3").value;
+    const id3 = document.getElementById("id3").value;
+
+    const data = [
+        ["Name", "Description", "ID"],
+        [name3, desc3, id3]
+    ];
+
+    let csv = data.map(row => row.join(",")).join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "data.csv";
+    a.click();
+}
+</script>
+
 </body>
 </html>
